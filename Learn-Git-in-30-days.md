@@ -97,4 +97,61 @@
 
 - 复制远端储存库：`git clone [repo_URL]`
 
-## [Day 4] 
+## [Day 4] 常用的 Git 版本控管指令
+
+- 新增 `git init`
+- 删除 `git rm file`
+- 重新命名 `git mv curr target`
+- 提交变更 `git commit -m 'msg'`
+- 查询历史记录 `git log`
+
+### 新增
+
+- 全部：`git add .`
+- 部分：`git add file`
+
+颜色状态：
+
+    - Untracked 未追踪
+    - Staged 准备好的档案
+
+### 提交变更
+
+- 提交变更：`git commit -m 'msg'`
+
+必须拥有版本记录说明文字
+
+### 查询历史
+
+- 限定输出的历史记录数量：`git log -10`
+
+### 删除
+
+- 删除：`git rm 'file'`
+
+注意：
+
+    - 删除工作目录快取的 file 这个档案
+    - 删除工作目录下的 file 这个**实体**档案
+
+### 重新命名档案或目录
+
+- 更名：`git mv currName targetName`
+
+### 显示工作目录索引状态
+
+- 详情：`git status`
+- 精简：`git status -s`
+
+### 重置目前工作目录
+
+- 重置目前工作目录索引状态：`git reset`
+- 工作目录还原到最新版本：`git reset --hard`
+
+### 还原某一个档案
+
+把 master 分支中最新的 file 还原，同时也会复原工作目录的索引状态
+
+- 还原某一个档案：`git checkout master file`
+
+## [Day 5] 
