@@ -201,4 +201,53 @@ tree 物件就是储存特定资料夹下包含哪些档案，以及该档案对
 
 > Git 索引是介于物件储存区和工作目录之间的媒介
 
-## [Day 6] 
+## [Day 6] 解析 Git 资料结构 - 物件结构
+
+> 物件是一种不可变的档案类型，物件储存区的档案通常只进不出。每个物件都是以档案内容进行 SHA1 计算出的一个 hash 值。
+
+### 物件类型
+
+- blob 物件：工作目录中某个档案的内容
+- tree 物件：储存特定目录下的所有资讯，包含该目录下的档案名，对应的 blob 物件名称，档案连接或其他 tree 物件
+- commit 物件：记录哪些 tree 物件包含在版本中，一个 commit 物件代表 Git 一次提交
+- tag 物件：关联一个特定 commit 物件
+
+## [Day 7] 解析 Git 资料结构 - 索引结构
+
+> 用来记录有哪些档案即将要被提交到下一个 commit 版本中
+
+别名：
+    - Index
+    - Cache
+    - Directory cache
+    - Current directory cache
+    - Staging area
+    - Staged files
+
+阶段：
+    - untracked
+    - unmodified
+    - modified
+    - staged
+
+> Git 储存库的运作，是将工作目录里的变化，透过更新索引的方式，将资料写成 Git 物件
+
+`git add -u`：仅将更新或删除的档案变更写入到索引
+
+`git rm fileName`：删除工作目录下的档案并更新索引
+
+`git rm --cached fileName`：仅删除索引档中的文件，不会删除工作目录下的文件
+
+`git ls-files`：列出所有目前已经储存在索引档中的那些档案路径
+
+## [Day 8] 关于分支的基本观念与使用方式
+
+分支机制就是为了解决开发中的版本冲突问题，同时也会引发冲突
+
+- 建立分支：
+    - `git branch name`
+    - `git checkout -b name`
+- 切换分支：
+    - `git checkout name`
+- 删除分支：
+    - `git branch -d name`
