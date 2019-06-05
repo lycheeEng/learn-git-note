@@ -251,3 +251,80 @@ tree 物件就是储存特定资料夹下包含哪些档案，以及该档案对
     - `git checkout name`
 - 删除分支：
     - `git branch -d name`
+
+## [Day 9] 对比档案与版本差异
+
+> `git diff old new` 以 tree 物件为比较单位
+
+### 四种基本比较方式
+
+- `git diff` 比较工作目录与索引
+- `git diff commit` 比较工作目录与指定 commit 物件里的 tree 物件
+    - `git diff HEAD` 比较工作目录与当前分支最新版
+- `git diff --cached commit` 比较索引与指定 commit 物件里的 tree 物件
+    - `git diff --cached HEAD` 比较索引与当前分支最新版
+- `git diff commit1 commit2` 比较指定两个 commit
+    - `git diff HEAD^ HEAD` 比较最新版的前一版与最新版
+
+### 三种 tree 物件来源
+
+- 任意版本中任意 tree
+- 索引
+- 目前工作目录
+
+## [Day 10] 认识 Git 物件的绝对名称
+
+> 物件 id 就是绝对名称
+
+- `git cat-file - commitid` 查看 commit 物件内容
+- `git log --pretty=oneline` 查看精简版本历史记录
+- `git log --pretty=onelien --abbrev-commit` 精简版部分绝对路径
+
+## [Day 11] 认识 Git 物件的 `一般参照` 与 `符号参照`
+
+> 参照名称：用一个预先定义或者自行定义的名称来代表一个 Git 物件（类似于 Git 物件的别名），通常指向一个 commit 物件，但也可以指向 blob/tree/tag 物件。所有参照名称都是个纯文字档案，指向版本历史记录中的最新版
+
+参照名称位置：
+- 本地分支：`.git/refs/heads/`
+- 远程分支：`.git/refs/remotes/`
+- 标签：`.git/refs/tags/`
+
+`git show commitid` 取得该版本的变更记录
+
+### 一般参照（指向一个物件的绝对路径）
+
+如果 newbranch 是 0bd0 的参照名称，那么：
+
+`git cat-file -p newranch` 和 `git cat-file -p 0bd0` 的结果是一样的
+
+### 符号参照（指向另一个一般参照）
+
+> 符号参照会指向另一个参照名称，内容以 `ref:` 开头
+
+- HEAD 永远指向工作目录中所设定的分支的最新版本
+- ORIG_HEAD HEAD 这个 commit 物件的前一版
+- FETCH_HEAD 记录远端储存库中每个分支的 HEAD 最新版的绝对路径
+- MERGE_HEAD 当执行合并工作时，合并来源的 commit 物件绝对名称会被记录在 MERGE_HEAD 这个符号参考中
+
+### 使用方式
+
+`git update-ref 一般参照名称 绝对路径` 自由建立一般参照。此时，绝对名称和参照名称都能存取特定物件内容
+
+如果要建立较为正式的参照名称，最好使用 `refs/` 开头
+
+`git update-ref -d 一般参照名称` 删除一般参照
+
+`git show ref` 显示所有参照
+
+## [Day 12] 认识 Git 物件的相对名称
+
+### 没有分支与合并的储存库中
+
+`^` 和 `~` 符号表示前一版
+
+### 存在分支与合并的储存库中
+
+- `^` 拥有多个上层 commit 物件时，要代表的第几个第一代上层物件
+- `~` 代表第一个上层 commit 物件
+
+`git rev-parse` 把任意参考名称或相对名称解析为绝对名称
