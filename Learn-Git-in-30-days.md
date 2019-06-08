@@ -355,3 +355,25 @@ tree 物件就是储存特定资料夹下包含哪些档案，以及该档案对
 `git stash apply` 取回版本，暂存版还在清单里
 `git stash apply "stash@{1}"` 取回特定版本
 `git stash drop "stash@{1}"` 删除特定暂存版
+
+## [Day 14] Git for Windows 选项设定
+
+储存 Git 选项设定的三个地方
+
+- 系统级：`--system` 设定于整台电脑
+- 用户级：`--global` 设定于当前用户
+- 储存区级：`--local` 设定于当前储存区
+
+选项应用顺序：
+
+- 先应用系统层级（优先级低）
+- 再应用使用者层级
+- 再应用储存区层级（优先级高）
+
+常用选项设定：
+
+- 别名：`git config --global alias.co commit`
+- 预设编辑器：`git config --global core.editor notepad.exe`
+- 直接编辑：`git config --edit --system`
+- 自动修正错误参数：`git config --global help.autocorrect 1`
+- 自定义讯息范本：`git config --local commit.template 'G:\git-commit-template.txt'`
