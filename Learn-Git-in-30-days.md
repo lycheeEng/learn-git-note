@@ -377,3 +377,32 @@ tree 物件就是储存特定资料夹下包含哪些档案，以及该档案对
 - 直接编辑：`git config --edit --system`
 - 自动修正错误参数：`git config --global help.autocorrect 1`
 - 自定义讯息范本：`git config --local commit.template 'G:\git-commit-template.txt'`
+
+## [Day 15] 标签 - 标记版本控制过程中的重要事件
+
+> 以一个“好记”的名称来帮助我们标记某一个版本（commit 物件）
+
+- 轻量标签：某个 commit 版本的别名，是一种相对名称
+    - 建立轻量标签：`git tag tagName`
+    - 删除轻量标签：`git tag -d tagName`
+- 标识标签：是 Git 物件的一种，即 Tag 物件
+    - 建立标识标签：`git tag 1.0.0-beta -a -m "Beta version"`，预设会将当前的 HEAD 版本建立成标签物件
+
+## [Day 16] 善用版本日志 git reflog 追踪变更轨迹
+
+> 只要修改了任何参照（ref）的内容，或是变更任何分支的 HEAD 参照内容，就会建立历史记录
+
+修改参照的命令，即导致产生新 reflog 的命令有：commit, checkout, pull, push, merge, reset, clone, branch, rebase, stash，每个分支，每个暂存版都有自己的 reflog
+
+可以用 git reset 复原变更：`git reset --hard HEAD@{1}`
+
+显示 reflog 的详细版本记录：`git log -g`
+
+删除特定版本历史记录：`git reflog delete ref@{specifier}`
+
+设定历史记录过期时间：
+
+- `git config --global gc.reflogExpire "never"`
+- `git config --global gc.reflogExpireUnreachable "never"`
+
+清除历史记录：`git reflog expire --expire=now --all`
