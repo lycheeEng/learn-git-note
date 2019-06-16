@@ -378,6 +378,21 @@ tree 物件就是储存特定资料夹下包含哪些档案，以及该档案对
 - 自动修正错误参数：`git config --global help.autocorrect 1`
 - 自定义讯息范本：`git config --local commit.template 'G:\git-commit-template.txt'`
 
+常用别名：
+
+- git config --global alias.co checkout
+- git config --global alias.cm commit
+- git config --global alias.st status
+- git config --global alias.sts "status -s"
+- git config --global alias.br branch
+- git config --global alias.re remote
+- git config --global alias.df diff
+- git config --global alias.type "cat-file -t"
+- git config --global alias.dump "cat-file -p"
+- git config --global alias.lo "log --oneline"
+- git config --global alias.ll "log --pretty=format:'%h %ad | %s%d [%Cgreen%an%Creset]' --graph --date=short"
+- git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset %ad |%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset [%Cgreen%an%Creset]' --abbrev-commit --date=short"
+
 ## [Day 15] 标签 - 标记版本控制过程中的重要事件
 
 > 以一个“好记”的名称来帮助我们标记某一个版本（commit 物件）
