@@ -421,3 +421,23 @@ tree 物件就是储存特定资料夹下包含哪些档案，以及该档案对
 - `git config --global gc.reflogExpireUnreachable "never"`
 
 清除历史记录：`git reflog expire --expire=now --all`
+
+## [Day 17] 关于合并的基本观念与使用方式
+
+合并之前：
+
+- 查看自己在哪个分支
+- 确保工作目录干净
+
+删除分支：
+
+- git branch -d branchName
+- git branch -D branchName
+
+救回误删分支：
+
+- git branch branchName objectId
+
+解决冲突的方法？
+
+## [Day 18] 
