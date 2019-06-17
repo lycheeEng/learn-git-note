@@ -453,3 +453,19 @@ tree 物件就是储存特定资料夹下包含哪些档案，以及该档案对
 ## [Day 19] 设定 .gitignore 忽略清单
 
 仅限于 Untracked files，对于已经 Staged files 则不受 .gitignore 控制
+
+## [Day 20] 修正 commit 过的版本历史记录 Part 2 (revert)
+
+> `git revert` 把某个版本的变更，透过相反的步骤把变更还原回来，实际上就是合并，在没有冲突的情况下会自动 commit
+
+- git revert commitId
+
+revert 失败：
+
+处理方式类似于合并分支失败情况
+
+使用 git revert 命令执行变更，但不执行 commit 动作：
+
+- git revert -n commitId
+- git revert --continue
+- git revert --abort
