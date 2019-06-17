@@ -449,3 +449,7 @@ tree 物件就是储存特定资料夹下包含哪些档案，以及该档案对
 - 删除最近一次版本：git reset --hard "HEAD^"
 - 删除最近一次版本但保留变更：git reset --soft "HEAD^"
 - 重新提交最后一个版本：git commit --amend msg
+
+## [Day 19] 设定 .gitignore 忽略清单
+
+仅限于 Untracked files，对于已经 Staged files 则不受 .gitignore 控制
