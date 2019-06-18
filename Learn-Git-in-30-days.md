@@ -511,3 +511,21 @@ rebase 能做的：
 - 压缩 commit（保留讯息）：pick 修改为 squash
 - 压缩 commit（丢失版本记录）：pick 修改为 fixup
 - 删除 commit：删除对应的 pick 行
+
+## [Day 24] 使用 GitHub 远端储存库
+
+- 建立无版本库（无分支）：
+    - 先 git clone 再建立版本上传：git push -u origin master
+    - 直接上传现有本地库：
+                            - git remote add origin URL
+                            - 然后：
+                                - git pull origin master --allow-unrelated-histories 或者
+                                - git fetch 再 git merge origin/master
+
+- 建立有版本库（会冲突）：
+    - 先 git clone 再建立版本上传：git push origin master
+    - 直接上传现有本地库：
+                            - git remote add origin URL
+                            - 然后：
+                                - git pull origin master --allow-unrelated-histories 或者
+                                - git fetch 再 git merge origin/master
