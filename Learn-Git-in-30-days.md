@@ -478,3 +478,21 @@ revert 失败：
 - git cherry-pick -x commitId，添加 `cherry picked from ...` 信息，类似于 revert
 - git cherry-pick -e commitId，建立版本之前先编辑信息
 - git cherry-pick -n commitId，不建立版本，然后自行 commit
+
+## [Day 22] 修正 commit 过的版本历史记录 Part 4 (rebase)
+
+> Base 代表基础版本的意思，表示你想要重新修改特定分支的基础版本，把另外一个分支的变更，当成我这个分支的基础
+
+注意：
+
+- 工作目录必须是干净的
+- 不是远端分支
+
+- git rebase master：将 branch1 分支的最新版本(HEAD)倒带(revind)到跟 master 一样的分支起点(revinding head)，然后再重新套用(replay)指定 master 分支中所有版本。先套用 master 然后再套用 branch1。（将 branch1 倒带，然后在 master 的 HEAD 上套用 branch1 的每个版本？）
+
+合并方式：
+
+- 一般指令（Fast-forward）：git merge branch1，直接修改 master 分支的 HEAD 到 branch1 的 HEAD，此时 master 和 branch1 一样。
+- 停用 Fast-forward（--no-ff）：git merge branch1 --no-ff，要合并的分支 branch1 先建立一个分支，然后再合并回 master。
+
+注意通过 rebase 之后，分支的起点就不一样了。
