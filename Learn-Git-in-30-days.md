@@ -413,7 +413,7 @@ tree 物件就是储存特定资料夹下包含哪些档案，以及该档案对
 
 显示 reflog 的详细版本记录：`git log -g`
 
-删除特定版本历史记录：`git reflog delete ref@{specifier}`
+删除特定版本历史记录：`git reflog delete ref@{specifier}`，不会影响到储存库中的任何内容
 
 设定历史记录过期时间：
 
