@@ -496,3 +496,18 @@ revert 失败：
 - 停用 Fast-forward（--no-ff）：git merge branch1 --no-ff，要合并的分支 branch1 先建立一个分支，然后再合并回 master。
 
 注意通过 rebase 之后，分支的起点就不一样了。
+
+## [Day 23] 修正 commit 过的版本历史记录 Part 4 (rebase 2)
+
+- git rebase -i commitID
+
+rebase 能做的：
+
+- 调换 commit 顺序：直接修改 pick 的顺序
+- 修改 commit 讯息：pick 修改为 reword
+- 插入 commit：pick 修改为 edit，然后 git commit --amend，git rebase --continue
+- 编辑 commit：类似于 插入 commit，然后 git commit --amend
+- 拆解 commit：类似于 插入 commit，然后将某些档案从索引状态移除，git commit --amend 建立新版本，然后 git add. git commit 等
+- 压缩 commit（保留讯息）：pick 修改为 squash
+- 压缩 commit（丢失版本记录）：pick 修改为 fixup
+- 删除 commit：删除对应的 pick 行
