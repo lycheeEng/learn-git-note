@@ -469,3 +469,12 @@ revert 失败：
 - git revert -n commitId
 - git revert --continue
 - git revert --abort
+
+## [Day 21] 修正 commit 过的版本历史记录 Part 3 (cheery-pick)
+
+> 当你在一个分支中开发了一段时间，但后来决定整个分支都不要了，不过当中却有几个版本想要留下来。挑选一个或者多个版本，然后套用在目前分支的最新版本上
+
+- git cherry-pick commitId，如果成功，则会在目前 master 上建立一个新版本，但是版本的 Author 和 Date 信息和以前一样
+- git cherry-pick -x commitId，添加 `cherry picked from ...` 信息，类似于 revert
+- git cherry-pick -e commitId，建立版本之前先编辑信息
+- git cherry-pick -n commitId，不建立版本，然后自行 commit
