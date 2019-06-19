@@ -529,3 +529,17 @@ rebase 能做的：
                             - 然后：
                                 - git pull origin master --allow-unrelated-histories 或者
                                 - git fetch 再 git merge origin/master
+
+## [Day 25] 使用 GitHub 远端储存库 —— 观念篇
+
+- git clone
+- git pull
+    - git fetch
+    - git merge origin/master
+- git push
+- git fetch
+- git ls-remote
+- git remote add origin https://github.com/example.git
+- git remote -v
+
+- origin：预设远端分支的参照名称，代表一个远端储存库的 URL 位置
