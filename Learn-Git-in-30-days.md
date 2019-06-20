@@ -550,3 +550,17 @@ rebase 能做的：
 
 如果 push/pull 失败，可以使用 `git reset --hard HEAD` 来返回之前的最新版
 如果合并成功了，但是又不想这次合并，可以使用 `git reset --hard ORIG_HEAD` 来重置合并之前的状态
+
+## [Day 27] 透过分支在同一个远端储存库中进行版控
+
+常见分支：
+- master
+- develop
+- feature/...
+- hotfix/...
+
+使用 `git push --all --tags` 推送所有本地建立的分支/标签
+使用 `git fetch --all --tags` 取回所有远端的分支/标签
+
+推送特定的分支：
+- `git push origin hotfix/...`
