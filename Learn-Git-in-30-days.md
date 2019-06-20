@@ -547,3 +547,6 @@ rebase 能做的：
 ## [Day 26] 多人在同一个远端储存库中进行版控
 
 注意在每次 push 之前先 pull 或者 fetch 一次，以免与远端储存库不一致导致 push 失败
+
+如果 push/pull 失败，可以使用 `git reset --hard HEAD` 来返回之前的最新版
+如果合并成功了，但是又不想这次合并，可以使用 `git reset --hard ORIG_HEAD` 来重置合并之前的状态
