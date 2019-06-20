@@ -543,3 +543,7 @@ rebase 能做的：
 - git remote -v
 
 - origin：预设远端分支的参照名称，代表一个远端储存库的 URL 位置
+
+## [Day 26] 多人在同一个远端储存库中进行版控
+
+注意在每次 push 之前先 pull 或者 fetch 一次，以免与远端储存库不一致导致 push 失败
