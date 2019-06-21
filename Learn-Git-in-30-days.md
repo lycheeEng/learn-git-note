@@ -568,3 +568,22 @@ rebase 能做的：
 ## [Day 28] 了解 GitHub 的 fork 与 pull request 版控
 
 > fork 和 pull request 的存在主要是权限以及版本库隔离的需求
+
+## [Day 30] Git 操作小技巧
+
+- 使用 ssh key 免输入账号密码
+- 还原 rebase 变动
+    - 找到 reabse 发生在哪个版本上，然后 reset 到那个版本前一版
+- 取得远端储存库统计资讯
+    - `git shortlog -sne` 详细列出每个人的 commit 次数
+    - `git shortlog -sne -n` 按 commit 数量降幂排序
+    - `git shortlog` 显示最近 commit 过的历史记录
+- 从工作目录清除不在版本库中的档案
+    - `git clean -n` 列出预期会删除的档案
+    - `git clean -f` 删除不在版本库的档案
+- 删除远端分支
+    - `git push origin :RemoteBranch`
+    - `git push origin --delete RemoteBranch`
+- 找出改坏程式的凶手
+    - `git blame fileName`
+    - `git blame -L 开始行, 结束行 fileName`
