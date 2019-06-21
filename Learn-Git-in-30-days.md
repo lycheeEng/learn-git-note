@@ -564,3 +564,7 @@ rebase 能做的：
 
 推送特定的分支：
 - `git push origin hotfix/...`
+
+## [Day 28] 了解 GitHub 的 fork 与 pull request 版控
+
+> fork 和 pull request 的存在主要是权限以及版本库隔离的需求
