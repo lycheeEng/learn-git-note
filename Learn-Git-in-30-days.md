@@ -587,3 +587,21 @@ rebase 能做的：
 - 找出改坏程式的凶手
     - `git blame fileName`
     - `git blame -L 开始行, 结束行 fileName`
+
+## [Day 31] Git 问题
+
+- `git push origin master` 完整写法应该是 `git push origin master:master`，即 push 代码到 origin 位置并在 origin 这个地方形成一个 master 分支
+- git clone/git fetch/git pull 区别
+- HEAD 是什么？
+    - 符号参照
+- 删除已合并的分支会发生什么？
+    - 几乎不会发生什么，分支就好比贴纸
+- rebase 整理出来的历史记录不会有合并用的 commit。通常在代码还没推出去，但是感觉 commit 有点乱，可以先用 rebase 整理一下
+- git checkout SHA1 当前 HEAD 移动到指定 commit 上，仅 HEAD 移动
+- git reset SHA1 当前 HEAD  和分支都移动到指定 commit 上
+    - --mixed 档案留在工作区
+    - --soft 档案和目录留在暂存区
+    - --hard 抛弃变化
+- git revert SHA1 产生新的 commit 来取消某些 commit 做的事情
+- 分支就像贴纸
+- git branch new_branch commitID 还原删除的分支
