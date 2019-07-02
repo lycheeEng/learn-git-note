@@ -590,6 +590,8 @@ rebase 能做的：
 
 ## [Day 31] Git 问题
 
+这部分内容基本来自这里：[Git 面試題](https://gitbook.tw/interview)
+
 - `git push origin master` 完整写法应该是 `git push origin master:master`，即 push 代码到 origin 位置并在 origin 这个地方形成一个 master 分支
 - git clone/git fetch/git pull 区别
 - HEAD 是什么？
@@ -597,11 +599,22 @@ rebase 能做的：
 - 删除已合并的分支会发生什么？
     - 几乎不会发生什么，分支就好比贴纸
 - rebase 整理出来的历史记录不会有合并用的 commit。通常在代码还没推出去，但是感觉 commit 有点乱，可以先用 rebase 整理一下
-- git checkout SHA1 当前 HEAD 移动到指定 commit 上，仅 HEAD 移动
-- git reset SHA1 当前 HEAD  和分支都移动到指定 commit 上
+- `git checkout SHA1` 当前 HEAD 移动到指定 commit 上，仅 HEAD 移动
+- `git reset SHA1` 当前 HEAD 和分支都移动到指定 commit 上
     - --mixed 档案留在工作区
     - --soft 档案和目录留在暂存区
     - --hard 抛弃变化
-- git revert SHA1 产生新的 commit 来取消某些 commit 做的事情
+- `git revert SHA1` 产生新的 commit 来取消某些 commit 做的事情
 - 分支就像贴纸
-- git branch new_branch commitID 还原删除的分支
+- `git branch new_branch commitID` 还原删除的分支
+- `git push -f`
+- 如果提交了一个 commit，然后发现这个 commit 有问题怎么办？
+    - 错误方法：`git reset HEAD^ --hard` `git push -f`
+    - 正确方法：`git revert SHA1`，产生一个 commit 去取消指定的那个 commit 的行为
+- 你可以把剛剛那批更新的檔案給我嗎：`git diff-tree HEAD --name-only -r --no-commit-id`
+- 添加空目录：添加 .keep 文件
+- 在过去的 commit 上建立一个分支：`git branch my_branch commitId`，在这个 commit 上贴上名为 my_branch 的贴纸
+- `git checkout master -f`
+- 重置 rebase：`git reset ORIG_HEAD --hard`
+- 重置 rebase：`git rebase前的SHA1  --hard`
+- 分析优势劣势？为什么用这个工具？为什么不用那个工具？
